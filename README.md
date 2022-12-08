@@ -1,4 +1,10 @@
 
+# Make a backup 
+```
+cp /etc/postfix/main.cf /etc/postfix/main.cf_backup
+```
+
+
 # Clear the file 
 ```
 echo "" > /etc/postfix/main.cf
