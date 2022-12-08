@@ -9,13 +9,15 @@ echo "" > /etc/postfix/main.cf
 root@modoboa:~# vi /etc/postfix/main.cf
 ```
 
-# just copy the rest of file and replace
+# just copy the rest of file and replace 
+* make sure to replace mail.yourdomain.com with the correct domain
+* make sure certificates path are correct
 
 ```
 This file was automatically installed on 2022-11-25T14:14:13.022679
 inet_interfaces = loopback-only
 inet_protocols = all
-myhostname = mail.khalidmrabti.com
+myhostname = mail.yourdomain.com
 myorigin = $myhostname
 mydestination = $myhostname
 mynetworks = 127.0.0.0/8 [::1]/128
@@ -53,10 +55,10 @@ TLS settings
 smtpd_use_tls = yes
 smtpd_tls_auth_only = no
 smtpd_tls_CApath = /etc/ssl/certs
-#smtpd_tls_key_file = /etc/ssl/private/mail.khalidmrabti.com.key
-smtpd_tls_key_file = /captain/data/letencrypt/etc/live/mail.khalidmrabti.com/privkey.pem
-#smtpd_tls_cert_file = /etc/ssl/certs/mail.khalidmrabti.com.cert
-smtpd_tls_cert_file = /captain/data/letencrypt/etc/live/mail.khalidmrabti.com/cert.pem
+#smtpd_tls_key_file = /etc/ssl/private/mail.yourdomain.com.key
+smtpd_tls_key_file = /captain/data/letencrypt/etc/live/mail.yourdomain.com/privkey.pem
+#smtpd_tls_cert_file = /etc/ssl/certs/mail.yourdomain.com.cert
+smtpd_tls_cert_file = /captain/data/letencrypt/etc/live/mail.yourdomain.com/cert.pem
 smtpd_tls_dh1024_param_file = ${config_directory}/dh2048.pem
 smtpd_tls_loglevel = 1
 smtpd_tls_session_cache_database = btree:$data_directory/smtpd_tls_session_cache
